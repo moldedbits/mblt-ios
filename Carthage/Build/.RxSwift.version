@@ -1,0 +1,72 @@
+{
+  "commitish" : "3.4.0",
+  "iOS" : [
+    {
+      "hash" : "123e5847a4ac987c71abd171258e4e2714d40164f9a015045712b3abbb320ec6",
+      "name" : "RxBlocking"
+    },
+    {
+      "hash" : "dff5603a2b26a25b755c0cf55f82f3f0c7db15eb741ae3d6eadd795e9096e2bf",
+      "name" : "RxTest"
+    },
+    {
+      "hash" : "7e3dc80804633f764df813e3f688bffa374826e4def00ca87de69b0b92cdca39",
+      "name" : "RxCocoa"
+    },
+    {
+      "hash" : "6d4cc8dda683ddf32f1aca5dcf7aaabc20cc59378e9a9e1864d467ff9d100026",
+      "name" : "RxSwift"
+    }
+  ],
+  "xcodeVersion" : "Xcode 8.2.1\nBuild version 8C1002",
+  "watchOS" : [
+    {
+      "hash" : "e43913230e1a8b2e398ac193ab2948d6e34c90a0b307d97d9e37c4c6c6d1fcd6",
+      "name" : "RxBlocking"
+    },
+    {
+      "hash" : "8e0baf793d796b6a4029a413aa1528e0d593ee0931f962cd2ade9dd3ca167d99",
+      "name" : "RxCocoa"
+    },
+    {
+      "hash" : "fca9a906d635a4e32ef14dcc1bcd0500bb3119466372c40c53d93d068e9c0b7d",
+      "name" : "RxSwift"
+    }
+  ],
+  "tvOS" : [
+    {
+      "hash" : "a6b44df0a46fb67876cbeabddeae00d5f54c5636d1f0ca5e40d67a403606e2a7",
+      "name" : "RxBlocking"
+    },
+    {
+      "hash" : "01c155f9d78abbe85b8fdaa8753a5e90c195a8defe5375ba23481c7fcc18dc3e",
+      "name" : "RxTest"
+    },
+    {
+      "hash" : "713840074113d071b0efb7b0746237de67c8bbd13e5a484b7918521796606c6a",
+      "name" : "RxCocoa"
+    },
+    {
+      "hash" : "6c368d7a47ddcf81b30b2689ea7359eaa03728a253fa227868432bff5ede4291",
+      "name" : "RxSwift"
+    }
+  ],
+  "Mac" : [
+    {
+      "hash" : "2c131dc1aac445c669dfd3da5fd85dd26f981b3ec692fb56b48e6165ad231efd",
+      "name" : "RxCocoa"
+    },
+    {
+      "hash" : "4942cd53d0ba6089657596d5f3af777052b797ff6d5a01a169e37c8dbc3fcc84",
+      "name" : "RxBlocking"
+    },
+    {
+      "hash" : "a38d23c665028033f9476b95c470dc5fdbbfe211ae0d606718afe396bf10f8d9",
+      "name" : "RxTest"
+    },
+    {
+      "hash" : "b5bd79a0aba864bd4dfe02734cc7b733d1c2ce6894c06869d288b1196dce4500",
+      "name" : "RxSwift"
+    }
+  ]
+}
