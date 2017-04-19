@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0915A4F81EA7650D00939749 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0915A4F51EA7650D00939749 /* RxCocoa.framework */; };
+		0915A4F91EA7650D00939749 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0915A4F61EA7650D00939749 /* RxSwift.framework */; };
+		0915A4FA1EA7650D00939749 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0915A4F71EA7650D00939749 /* RxTest.framework */; };
+		0915A5001EA7911600939749 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915A4FF1EA7911600939749 /* EndPoint.swift */; };
 		091D513C1EA6389900709E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091D513B1EA6389900709E21 /* AppDelegate.swift */; };
 		091D513E1EA6389900709E21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091D513D1EA6389900709E21 /* ViewController.swift */; };
 		091D51411EA6389900709E21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091D513F1EA6389900709E21 /* Main.storyboard */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0915A4F51EA7650D00939749 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		0915A4F61EA7650D00939749 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		0915A4F71EA7650D00939749 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		0915A4FF1EA7911600939749 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndPoint.swift; path = Networking/EndPoint.swift; sourceTree = "<group>"; };
 		091D51381EA6389900709E21 /* Logtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		091D513B1EA6389900709E21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		091D513D1EA6389900709E21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0915A4F81EA7650D00939749 /* RxCocoa.framework in Frameworks */,
+				0915A4F91EA7650D00939749 /* RxSwift.framework in Frameworks */,
+				0915A4FA1EA7650D00939749 /* RxTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +87,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0915A4F41EA7650D00939749 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0915A4F51EA7650D00939749 /* RxCocoa.framework */,
+				0915A4F61EA7650D00939749 /* RxSwift.framework */,
+				0915A4F71EA7650D00939749 /* RxTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0915A4FE1EA790F400939749 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0915A4FF1EA7911600939749 /* EndPoint.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		091D512F1EA6389800709E21 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +112,7 @@
 				091D51521EA6389900709E21 /* LogtimeTests */,
 				091D515D1EA6389900709E21 /* LogtimeUITests */,
 				091D51391EA6389900709E21 /* Products */,
+				0915A4F41EA7650D00939749 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +129,7 @@
 		091D513A1EA6389900709E21 /* Logtime */ = {
 			isa = PBXGroup;
 			children = (
+				0915A4FE1EA790F400939749 /* Networking */,
 				091D513B1EA6389900709E21 /* AppDelegate.swift */,
 				091D513D1EA6389900709E21 /* ViewController.swift */,
 				091D513F1EA6389900709E21 /* Main.storyboard */,
@@ -138,6 +169,7 @@
 				091D51341EA6389800709E21 /* Sources */,
 				091D51351EA6389800709E21 /* Frameworks */,
 				091D51361EA6389800709E21 /* Resources */,
+				0915A4FB1EA7653B00939749 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -260,6 +292,25 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0915A4FB1EA7653B00939749 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		091D51341EA6389800709E21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -267,6 +318,7 @@
 			files = (
 				091D51441EA6389900709E21 /* Logtime.xcdatamodeld in Sources */,
 				091D513E1EA6389900709E21 /* ViewController.swift in Sources */,
+				0915A5001EA7911600939749 /* EndPoint.swift in Sources */,
 				091D513C1EA6389900709E21 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +470,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DHG6J45BG4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Logtime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moldedbits.Logtime;
@@ -433,6 +489,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DHG6J45BG4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Logtime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moldedbits.Logtime;
@@ -520,6 +580,7 @@
 				091D51651EA6389900709E21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		091D51661EA6389900709E21 /* Build configuration list for PBXNativeTarget "LogtimeTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +589,7 @@
 				091D51681EA6389900709E21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		091D51691EA6389900709E21 /* Build configuration list for PBXNativeTarget "LogtimeUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +598,7 @@
 				091D516B1EA6389900709E21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

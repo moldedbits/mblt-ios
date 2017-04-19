@@ -1,1 +1,2 @@
 github "ReactiveX/RxSwift" "3.4.0"
+github "aksswami/Moya-ObjectMapper" "9c4e219564c56ff875b7302680dedf509e59095c"

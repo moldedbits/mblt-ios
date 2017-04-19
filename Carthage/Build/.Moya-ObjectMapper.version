@@ -1,0 +1,19 @@
+{
+  "commitish" : "9c4e219564c56ff875b7302680dedf509e59095c",
+  "iOS" : [
+    {
+      "hash" : "cfa2f7232cae19e0e8feb6d1f64d7678b982573276b5ac6b11984295f20e7b3d",
+      "name" : "Moya_ObjectMapper"
+    }
+  ],
+  "xcodeVersion" : "Xcode 8.2.1\nBuild version 8C1002",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "Mac" : [
+
+  ]
+}
