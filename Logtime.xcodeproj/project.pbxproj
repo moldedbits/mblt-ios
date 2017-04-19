@@ -197,7 +197,7 @@
 					091D51371EA6389800709E21 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = DHG6J45BG4;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					091D514E1EA6389900709E21 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -422,6 +422,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moldedbits.Logtime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e5bacc1a-4335-4ae2-9f1f-641a6dd40f01";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.moldedbits.Logtime";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -435,6 +437,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moldedbits.Logtime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e5bacc1a-4335-4ae2-9f1f-641a6dd40f01";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.moldedbits.Logtime";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
