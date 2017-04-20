@@ -1,3 +1,0 @@
-framework module ReactiveMoya {
-    header "ReactiveMoya-Swift.h"
-}

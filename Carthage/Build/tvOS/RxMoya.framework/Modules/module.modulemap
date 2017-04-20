@@ -1,3 +1,0 @@
-framework module RxMoya {
-    header "RxMoya-Swift.h"
-}
