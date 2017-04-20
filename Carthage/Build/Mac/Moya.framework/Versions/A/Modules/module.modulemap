@@ -1,0 +1,3 @@
+framework module Moya {
+    header "Moya-Swift.h"
+}

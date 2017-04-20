@@ -11,6 +11,7 @@
 		0915A4F91EA7650D00939749 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0915A4F61EA7650D00939749 /* RxSwift.framework */; };
 		0915A4FA1EA7650D00939749 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0915A4F71EA7650D00939749 /* RxTest.framework */; };
 		0915A5001EA7911600939749 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915A4FF1EA7911600939749 /* EndPoint.swift */; };
+		0915A5021EA7A91900939749 /* Moya_ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0915A5011EA7A91900939749 /* Moya_ObjectMapper.framework */; };
 		091D513C1EA6389900709E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091D513B1EA6389900709E21 /* AppDelegate.swift */; };
 		091D513E1EA6389900709E21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091D513D1EA6389900709E21 /* ViewController.swift */; };
 		091D51411EA6389900709E21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091D513F1EA6389900709E21 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		0915A4F61EA7650D00939749 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		0915A4F71EA7650D00939749 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		0915A4FF1EA7911600939749 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndPoint.swift; path = Networking/EndPoint.swift; sourceTree = "<group>"; };
+		0915A5011EA7A91900939749 /* Moya_ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya_ObjectMapper.framework; path = Carthage/Build/iOS/Moya_ObjectMapper.framework; sourceTree = "<group>"; };
 		091D51381EA6389900709E21 /* Logtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		091D513B1EA6389900709E21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		091D513D1EA6389900709E21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0915A5021EA7A91900939749 /* Moya_ObjectMapper.framework in Frameworks */,
 				0915A4F81EA7650D00939749 /* RxCocoa.framework in Frameworks */,
 				0915A4F91EA7650D00939749 /* RxSwift.framework in Frameworks */,
 				0915A4FA1EA7650D00939749 /* RxTest.framework in Frameworks */,
@@ -90,6 +93,7 @@
 		0915A4F41EA7650D00939749 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0915A5011EA7A91900939749 /* Moya_ObjectMapper.framework */,
 				0915A4F51EA7650D00939749 /* RxCocoa.framework */,
 				0915A4F61EA7650D00939749 /* RxSwift.framework */,
 				0915A4F71EA7650D00939749 /* RxTest.framework */,

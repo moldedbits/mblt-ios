@@ -2,7 +2,7 @@
   "commitish" : "9c4e219564c56ff875b7302680dedf509e59095c",
   "iOS" : [
     {
-      "hash" : "cfa2f7232cae19e0e8feb6d1f64d7678b982573276b5ac6b11984295f20e7b3d",
+      "hash" : "792a240d2b9ef625b99a350207915615bb184b45751b265924b7102662d1cfc0",
       "name" : "Moya_ObjectMapper"
     }
   ],
