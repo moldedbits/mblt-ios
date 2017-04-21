@@ -25,6 +25,7 @@
 		097BAF241EA8CF6D00BD4809 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097BAF231EA8CF6D00BD4809 /* ObjectMapper.framework */; };
 		097BAF261EA8CFE200BD4809 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097BAF251EA8CFE200BD4809 /* Result.framework */; };
 		097BAF291EA8E47D00BD4809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097BAF281EA8E47D00BD4809 /* User.swift */; };
+		097BAF2B1EA8F40300BD4809 /* XAppToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097BAF2A1EA8F40300BD4809 /* XAppToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		097BAF231EA8CF6D00BD4809 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		097BAF251EA8CFE200BD4809 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		097BAF281EA8E47D00BD4809 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
+		097BAF2A1EA8F40300BD4809 /* XAppToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XAppToken.swift; path = Model/XAppToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				097BAF281EA8E47D00BD4809 /* User.swift */,
+				097BAF2A1EA8F40300BD4809 /* XAppToken.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			files = (
 				091D51441EA6389900709E21 /* Logtime.xcdatamodeld in Sources */,
 				091D513E1EA6389900709E21 /* ViewController.swift in Sources */,
+				097BAF2B1EA8F40300BD4809 /* XAppToken.swift in Sources */,
 				0915A5001EA7911600939749 /* EndPoint.swift in Sources */,
 				097BAF291EA8E47D00BD4809 /* User.swift in Sources */,
 				091D513C1EA6389900709E21 /* AppDelegate.swift in Sources */,

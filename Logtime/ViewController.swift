@@ -14,7 +14,7 @@ import Moya_ObjectMapper
 
 class ViewController: UIViewController {
     
-    var rxProvider: RxMoyaProvider<LogtimeAPI>!
+    var provider: Networking!
     
     let disposeBag: DisposeBag = DisposeBag()
 
@@ -31,15 +31,38 @@ class ViewController: UIViewController {
     }
     
     func setupRx() {
-        rxProvider = RxMoyaProvider<LogtimeAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider = Networking.newDefaultNetworking()
         
-        rxProvider.request(LogtimeAPI.authenticate(username: "x@x.com", password: "password"))
+        provider.request(LogtimeAPI.authenticate(username: "x@x.com", password: "password"))
             .debug()
             .mapObject(AuthResponse.self)
             .subscribe{ event in
                 switch event {
                 case .next(let authResponse):
-                    print("Name: \(authResponse.user.name) + \(authResponse.user.email)")
+                    guard let user = authResponse.user else { return }
+                    print("Name: \(user.name) + \(user.email)")
+                    var token = XAppToken()
+                    token.token = user.authToken
+                    token.mail = user.email
+                    self.getTimesheets(user: user)
+                    break
+                case .error(let error):
+                    print("error: \(error)")
+                    break
+                default:
+                    break
+                }
+            }.addDisposableTo(disposeBag)
+    }
+    
+    func getTimesheets(user: User) {
+        
+        let authorizedProvider = AuthorizedNetworking.newAuthorizedNetworking()
+        authorizedProvider.request(LogtimeAPI.timesheets)
+            .subscribe { event in
+                switch event {
+                case .next(let response):
+                    print(response)
                     break
                 case .error(let error):
                     print("error: \(error)")
