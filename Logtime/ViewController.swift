@@ -59,6 +59,7 @@ class ViewController: UIViewController {
         
         let authorizedProvider = AuthorizedNetworking.newAuthorizedNetworking()
         authorizedProvider.request(LogtimeAPI.timesheets)
+            .mapArray(Timesheet.self)
             .subscribe { event in
                 switch event {
                 case .next(let response):
