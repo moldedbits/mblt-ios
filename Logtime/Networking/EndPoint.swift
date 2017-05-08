@@ -20,7 +20,14 @@ private extension String {
 enum LogtimeAPI {
     case authenticate(username: String, password: String)
     case timesheets
-    
+    case timesheet(id: Int)
+    case createTimesheet(timesheet: Timesheet)
+    case projects
+    case project(id: Int)
+    case createProject(project: Project)
+    case clients
+    case client(id: Int)
+    case createClient(client: Client)
 }
 
 extension LogtimeAPI: TargetType, AccessTokenAuthorizable {
@@ -29,8 +36,18 @@ extension LogtimeAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         case .authenticate(_, _):
             return "/users/sign_in.json"
-        case .timesheets:
+        case .timesheets, .createTimesheet(_):
             return "/timesheets.json"
+        case .timesheet(let id):
+            return "/timesheets/\(id).json"
+        case .projects, .createProject(_):
+            return "/projects.json"
+        case .project(let id):
+            return "/projects/\(id).json"
+        case .clients, .createClient(_):
+            return "/clients.json"
+        case .client(let id):
+            return "/clients/\(id).json"
         }
     }
     
@@ -38,7 +55,7 @@ extension LogtimeAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         case .authenticate(_, _):
             return .post
-        case .timesheets:
+        default:
             return .get
         }
     }
@@ -48,7 +65,14 @@ extension LogtimeAPI: TargetType, AccessTokenAuthorizable {
         case .authenticate(let username, let password):
             let emailPassword = ["email": username, "password": password]
             return ["user": emailPassword]
-        case .timesheets:
+        case .createTimesheet(let timesheet):
+            return ["timesheet": timesheet.toJSON()]
+        case .createProject(let project):
+            return ["project": project.toJSON()]
+        case .createClient(let client):
+            return ["client": client.toJSON()]
+            
+        default:
             return nil
         }
     }

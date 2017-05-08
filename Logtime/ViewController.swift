@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     func setupRx() {
         provider = Networking.newDefaultNetworking()
         
-        provider.request(LogtimeAPI.authenticate(username: "x@x.com", password: "password"))
+        provider.request(.authenticate(username: "x@x.com", password: "password"))
             .debug()
             .mapObject(AuthResponse.self)
             .subscribe{ event in
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     func getTimesheets(user: User) {
         
         let authorizedProvider = AuthorizedNetworking.newAuthorizedNetworking()
-        authorizedProvider.request(LogtimeAPI.timesheets)
+        authorizedProvider.request(.timesheets)
             .mapArray(Timesheet.self)
             .subscribe { event in
                 switch event {
@@ -72,6 +72,40 @@ class ViewController: UIViewController {
                     break
                 }
             }.addDisposableTo(disposeBag)
+        
+        authorizedProvider.request(.projects)
+            .mapArray(Project.self)
+            .subscribe { event in
+                switch event {
+                case .next(let response):
+                    print(response)
+                    break
+                case .error(let error):
+                    print("error: \(error)")
+                    break
+                default:
+                    break
+                }
+            }.addDisposableTo(disposeBag)
+        
+        authorizedProvider.request(.clients)
+            .mapArray(Client.self)
+            .subscribe { event in
+                switch event {
+                case .next(let response):
+                    print(response)
+                    break
+                case .error(let error):
+                    print("error: \(error)")
+                    break
+                default:
+                    break
+                }
+            }.addDisposableTo(disposeBag)
+        
+        let timesheet = Timesheet(
     }
+    
 }
+
 

@@ -22,13 +22,16 @@ struct Timesheet: Mappable {
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
+        if map.mappingType == .fromJSON {
+            id <- map["id"]
+            userId <- map["user_id"]
+            url <- (map["url"], URLTransform())
+        }
+        
         hours <- map["hours"]
         date <- (map["date"], DateTransform())
         standupDetails <- map["standup_detail"]
-        userId <- map["user_id"]
         workedFromHome <- map["worked_from_home"]
         project <- map["project"]
-        url <- (map["url"], URLTransform())
     }
 }

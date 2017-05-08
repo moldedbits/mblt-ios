@@ -16,7 +16,10 @@ struct Client: Mappable {
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
+        if map.mappingType == .fromJSON {
+            id <- map["id"]
+        }
+        
         name <- map["name"]
     }
 }
