@@ -53,7 +53,7 @@ extension LogtimeAPI: TargetType, AccessTokenAuthorizable {
     
     var method: Moya.Method {
         switch self {
-        case .authenticate(_, _):
+        case .authenticate(_, _), .createTimesheet(_), .createClient(_), .createProject(_):
             return .post
         default:
             return .get

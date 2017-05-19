@@ -79,6 +79,8 @@ class ViewController: UIViewController {
                 switch event {
                 case .next(let response):
                     print(response)
+                    guard let project = response.first else { break }
+                    self.createTimesheet(project: project)
                     break
                 case .error(let error):
                     print("error: \(error)")
@@ -102,10 +104,29 @@ class ViewController: UIViewController {
                     break
                 }
             }.addDisposableTo(disposeBag)
-        
-        let timesheet = Timesheet(
     }
     
+    func createTimesheet(project: Project) {
+        let timesheet = Timesheet(hours: 8, date: Date(), standupDetails: "Test details", workedFromHome: false, projectId: project.id)
+        
+        let authorizedProvider = AuthorizedNetworking.newAuthorizedNetworking()
+        
+        authorizedProvider.request(.createTimesheet(timesheet: timesheet))
+            .mapObject(Timesheet.self)
+            .subscribe { event in
+            switch event {
+            case .next(let response):
+                print(response)
+                break
+            case .error(let error):
+                print("error: \(error)")
+                break
+            default:
+                break
+            }
+            }.addDisposableTo(disposeBag)
+    }
+
 }
 
 
