@@ -19,6 +19,11 @@
 		091D51491EA6389900709E21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091D51471EA6389900709E21 /* LaunchScreen.storyboard */; };
 		091D51541EA6389900709E21 /* LogtimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091D51531EA6389900709E21 /* LogtimeTests.swift */; };
 		091D515F1EA6389900709E21 /* LogtimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091D515E1EA6389900709E21 /* LogtimeUITests.swift */; };
+		092AD9811ECEFDF300B4638A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092AD9801ECEFDF300B4638A /* Coordinator.swift */; };
+		093232AD1ED07449008C8FAE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093232AC1ED07449008C8FAE /* AppCoordinator.swift */; };
+		093232B11ED08B4C008C8FAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093232AF1ED08B4C008C8FAE /* LoginViewController.swift */; };
+		093232B21ED08B4C008C8FAE /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 093232B01ED08B4C008C8FAE /* LoginViewController.xib */; };
+		093232B41ED0D095008C8FAE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093232B31ED0D095008C8FAE /* LoginViewModel.swift */; };
 		097BAF1E1EA8BB9C00BD4809 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097BAF1D1EA8BB9C00BD4809 /* Alamofire.framework */; };
 		097BAF201EA8BBA200BD4809 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097BAF1F1EA8BBA200BD4809 /* Moya.framework */; };
 		097BAF221EA8BBA700BD4809 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097BAF211EA8BBA700BD4809 /* RxMoya.framework */; };
@@ -68,6 +73,11 @@
 		091D515A1EA6389900709E21 /* LogtimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogtimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		091D515E1EA6389900709E21 /* LogtimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogtimeUITests.swift; sourceTree = "<group>"; };
 		091D51601EA6389900709E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		092AD9801ECEFDF300B4638A /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinator.swift; path = Coordinator/Coordinator.swift; sourceTree = "<group>"; };
+		093232AC1ED07449008C8FAE /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppCoordinator.swift; path = Coordinator/AppCoordinator.swift; sourceTree = "<group>"; };
+		093232AF1ED08B4C008C8FAE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
+		093232B01ED08B4C008C8FAE /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewController/LoginViewController.xib; sourceTree = "<group>"; };
+		093232B31ED0D095008C8FAE /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = ViewModel/LoginViewModel.swift; sourceTree = "<group>"; };
 		097BAF1D1EA8BB9C00BD4809 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		097BAF1F1EA8BBA200BD4809 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		097BAF211EA8BBA700BD4809 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
@@ -161,6 +171,9 @@
 		091D513A1EA6389900709E21 /* Logtime */ = {
 			isa = PBXGroup;
 			children = (
+				093232B51ED0D09A008C8FAE /* ViewModel */,
+				093232AE1ED08B28008C8FAE /* ViewController */,
+				092AD97F1ECEFDD100B4638A /* Coordinator */,
 				097BAF271EA8E46B00BD4809 /* Model */,
 				0915A4FE1EA790F400939749 /* Networking */,
 				091D513B1EA6389900709E21 /* AppDelegate.swift */,
@@ -190,6 +203,32 @@
 				091D51601EA6389900709E21 /* Info.plist */,
 			);
 			path = LogtimeUITests;
+			sourceTree = "<group>";
+		};
+		092AD97F1ECEFDD100B4638A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				092AD9801ECEFDF300B4638A /* Coordinator.swift */,
+				093232AC1ED07449008C8FAE /* AppCoordinator.swift */,
+			);
+			name = Coordinator;
+			sourceTree = "<group>";
+		};
+		093232AE1ED08B28008C8FAE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				093232AF1ED08B4C008C8FAE /* LoginViewController.swift */,
+				093232B01ED08B4C008C8FAE /* LoginViewController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		093232B51ED0D09A008C8FAE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				093232B31ED0D095008C8FAE /* LoginViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		097BAF271EA8E46B00BD4809 /* Model */ = {
@@ -315,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				093232B21ED08B4C008C8FAE /* LoginViewController.xib in Resources */,
 				091D51491EA6389900709E21 /* LaunchScreen.storyboard in Resources */,
 				091D51461EA6389900709E21 /* Assets.xcassets in Resources */,
 				091D51411EA6389900709E21 /* Main.storyboard in Resources */,
@@ -366,11 +406,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				093232B11ED08B4C008C8FAE /* LoginViewController.swift in Sources */,
+				093232AD1ED07449008C8FAE /* AppCoordinator.swift in Sources */,
 				091D51441EA6389900709E21 /* Logtime.xcdatamodeld in Sources */,
 				091D513E1EA6389900709E21 /* ViewController.swift in Sources */,
+				092AD9811ECEFDF300B4638A /* Coordinator.swift in Sources */,
 				097BAF2B1EA8F40300BD4809 /* XAppToken.swift in Sources */,
 				0915A5001EA7911600939749 /* EndPoint.swift in Sources */,
 				09A1FF2D1EAA2E7000AB065C /* Timesheet.swift in Sources */,
+				093232B41ED0D095008C8FAE /* LoginViewModel.swift in Sources */,
 				097BAF291EA8E47D00BD4809 /* User.swift in Sources */,
 				091D513C1EA6389900709E21 /* AppDelegate.swift in Sources */,
 				09A1FF2F1EAA2E7C00AB065C /* Project.swift in Sources */,
