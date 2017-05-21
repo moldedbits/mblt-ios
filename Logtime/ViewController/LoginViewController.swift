@@ -57,15 +57,16 @@ class LoginViewController: UIViewController {
             .flatMapLatest { [unowned self] _ -> Observable<AuthStatus> in
                 return self.viewModel.authenticate(username: self.userNameTextField.text ?? "", password: self.passwordTextField.text ?? "")
             }
-            .subscribe(onNext: {authStatus in
-                switch authStatus {
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] authenticationStatus in
+                switch authenticationStatus {
                 case .success(_):
                     break
                 case .faliure(let error):
-                    print(error)
-                    break
+                    self.showError(error)
                 }
-            }).addDisposableTo(disposeBag)
+            })
+            .addDisposableTo(disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,5 +75,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+    }
+    
+    fileprivate func showError(_ error: AuthenticationError) {
+        let alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }

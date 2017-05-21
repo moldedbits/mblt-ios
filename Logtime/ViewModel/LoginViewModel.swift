@@ -19,6 +19,23 @@ enum AuthenticationError: Error {
     case server
     case badReponse
     case badCredentials
+    
+    var title: String {
+        switch self {
+        case .server, .badReponse:
+            return "An error occured"
+        case .badCredentials:
+            return "Bad credentials"
+        }
+    }
+    var message: String {
+        switch self {
+        case .server, .badReponse:
+            return "Server error. Please try after some time."
+        case .badCredentials:
+            return "Please enter correct credentials to sign-in."
+        }
+    }
 }
 
 enum AuthStatus {
@@ -61,6 +78,6 @@ struct LoginViewModel {
 
                 return AuthStatus.success(user)
             }
-            .catchErrorJustReturn(AuthStatus.faliure(.server))
+            .catchErrorJustReturn(.faliure(.badCredentials))
     }
 }
