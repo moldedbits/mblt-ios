@@ -10,10 +10,11 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class TimesheetsTableViewController: UITableViewController {
+class TimesheetsTableViewController: UITableViewController, ActivityIndicatorPresenter {
     
     let disposeBag = DisposeBag()
     var viewModel: TimesheetsViewModel!
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     convenience init(viewModel: TimesheetsViewModel) {
         self.init()
@@ -24,9 +25,9 @@ class TimesheetsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 60.0
-        tableView.register(TimesheetTableViewCell.nib, forCellReuseIdentifier: String(describing: TimesheetTableViewCell.self))
+        title = "Timesheets"
+        setupTableView()
+        setupNavigationBar()
         setupRxBindings()
         
         // Uncomment the following line to preserve selection between presentations
@@ -36,16 +37,40 @@ class TimesheetsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func setupRxBindings() {
-        viewModel.getTimesheets()
+    private func setupTableView() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60.0
+        tableView.register(TimesheetTableViewCell.nib, forCellReuseIdentifier: String(describing: TimesheetTableViewCell.self))
+    }
+    
+    private func setupNavigationBar() {
+        let addTimesheetBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        addTimesheetBarButton.rx.tap
+            .map { _ in true }
+            .bind(to: viewModel.addTimesheet)
+            .addDisposableTo(disposeBag)
+        
+        navigationItem.rightBarButtonItems = [addTimesheetBarButton]
+    }
+    
+    private func setupRxBindings() {
+       let timesheetSignal = viewModel.getTimesheets()
+            .trackActivity(viewModel.activityIndicator)
             .asDriver(onErrorJustReturn: [])
-            .drive(tableView.rx.items) { (tableView, row, item) in
+        
+        timesheetSignal.drive(tableView.rx.items) { (tableView, row, item) in
                 let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TimesheetTableViewCell.self), for: IndexPath(row: row, section: 0)) as! TimesheetTableViewCell
                 cell.configure(withDelegate: item)
                 
                 return cell
         }.addDisposableTo(disposeBag)
-
+        
+        viewModel.activityIndicator
+            .distinctUntilChanged()
+            .drive(onNext: { [unowned self] active in
+                self.view.endEditing(true)
+                _ = active ? self.showActivityIndicator() : self.hideActivityIndicator()
+            })
+            .addDisposableTo(disposeBag)
     }
-    
 }

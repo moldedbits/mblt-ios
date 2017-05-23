@@ -20,6 +20,11 @@ struct Timesheet: Mappable {
     var url: URL!
     var projectId: Int?
     
+    init() {
+        self.date = Date()
+        self.hours = 0
+    }
+    
     init(hours: Int, date: Date, standupDetails: String?, workedFromHome: Bool, projectId: Int) {
         self.hours = hours
         self.date = date

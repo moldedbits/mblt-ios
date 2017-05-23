@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
-class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
     
     func start() {
         let loginCoordinator = LoginCoordinator(navigationController: navigationController, appCoordinator: self)
@@ -27,10 +28,16 @@ class AppCoordinator: Coordinator {
         childCoordinators.append(timesheetsCoordinator)
         timesheetsCoordinator.start()
     }
+    
+    func timesheetCoordinatorStart() {
+        let timesheetCoordinator = TimesheetCoordinator(navigationController: navigationController, appCoordinator: self)
+        childCoordinators.append(timesheetCoordinator)
+        timesheetCoordinator.start()
+    }
 }
 
 
-class LoginCoordinator: Coordinator {
+final class LoginCoordinator: Coordinator {
     
     var appCoordinator: AppCoordinator?
     var viewModel: LoginViewModel?
@@ -58,8 +65,9 @@ class LoginCoordinator: Coordinator {
     }
 }
 
-class TimesheetsCoordinator: Coordinator {
+final class TimesheetsCoordinator: Coordinator {
     
+    let disposeBag = DisposeBag()
     var appCoordinator: AppCoordinator?
     
     convenience init(navigationController: UINavigationController?, appCoordinator: AppCoordinator) {
@@ -71,8 +79,30 @@ class TimesheetsCoordinator: Coordinator {
     func start() {
         let provider = AuthorizedNetworking.newAuthorizedNetworking()
         let viewModel = TimesheetsViewModel(authorizedProvider: provider)
+        viewModel.addTimesheet.asObservable()
+            .filter { $0 }
+            .subscribe(onNext: { [unowned self] _ in
+                self.appCoordinator?.timesheetCoordinatorStart()
+            }).addDisposableTo(disposeBag)
+        
         let timesheetsTableViewController = TimesheetsTableViewController(viewModel: viewModel)
         navigationController?.viewControllers = [timesheetsTableViewController]
     }
-    
 }
+
+final class TimesheetCoordinator: Coordinator {
+    
+    var appCoordinator: AppCoordinator?
+    
+    convenience init(navigationController: UINavigationController?, appCoordinator: AppCoordinator) {
+        self.init(navigationController: navigationController)
+        
+        self.appCoordinator = appCoordinator
+    }
+    
+    func start() {
+        let timesheetViewController = TimesheetViewController()
+        navigationController?.pushViewController(timesheetViewController, animated: false)
+    }
+}
+

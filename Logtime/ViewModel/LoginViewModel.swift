@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import RxSwiftUtilities
 import Moya_ObjectMapper
 import ObjectMapper
 
@@ -47,6 +48,7 @@ struct LoginViewModel {
     
     let provider: Networking!
     let disposeBag = DisposeBag()
+    let activityIndicator = ActivityIndicator()
     
     var username = Variable<String>("")
     var password = Variable<String>("")
@@ -56,7 +58,7 @@ struct LoginViewModel {
     var isValid: Observable<Bool> {
         return Observable<Bool>.combineLatest(self.username.asObservable(), self.password.asObservable()) { username, password in
             return !username.isEmpty && !password.isEmpty
-        }
+        }.startWith(false)
     }
     
     init(provider: Networking) {

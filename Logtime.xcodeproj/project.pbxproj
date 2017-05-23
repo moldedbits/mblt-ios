@@ -40,6 +40,11 @@
 		09A1FF2F1EAA2E7C00AB065C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A1FF2E1EAA2E7C00AB065C /* Project.swift */; };
 		09A1FF311EAA373C00AB065C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A1FF301EAA373C00AB065C /* Client.swift */; };
 		09CED9091ED1DA7B002D8FFB /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CED9081ED1DA7B002D8FFB /* UIView+Nib.swift */; };
+		09CED90B1ED2BEFA002D8FFB /* RxSwiftUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CED90A1ED2BEFA002D8FFB /* RxSwiftUtilities.framework */; };
+		09CED90D1ED2C460002D8FFB /* UIViewController+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CED90C1ED2C460002D8FFB /* UIViewController+ActivityIndicator.swift */; };
+		09CED9101ED30BE6002D8FFB /* TimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CED90E1ED30BE6002D8FFB /* TimesheetViewController.swift */; };
+		09CED9111ED30BE6002D8FFB /* TimesheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09CED90F1ED30BE6002D8FFB /* TimesheetViewController.xib */; };
+		09CED9131ED43076002D8FFB /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CED9121ED43076002D8FFB /* Date+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +105,11 @@
 		09A1FF2E1EAA2E7C00AB065C /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Model/Project.swift; sourceTree = "<group>"; };
 		09A1FF301EAA373C00AB065C /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Model/Client.swift; sourceTree = "<group>"; };
 		09CED9081ED1DA7B002D8FFB /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Nib.swift"; path = "Extensions/UIView+Nib.swift"; sourceTree = "<group>"; };
+		09CED90A1ED2BEFA002D8FFB /* RxSwiftUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftUtilities.framework; path = Carthage/Build/iOS/RxSwiftUtilities.framework; sourceTree = "<group>"; };
+		09CED90C1ED2C460002D8FFB /* UIViewController+ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+ActivityIndicator.swift"; path = "Extensions/UIViewController+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		09CED90E1ED30BE6002D8FFB /* TimesheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimesheetViewController.swift; path = ViewController/TimesheetViewController.swift; sourceTree = "<group>"; };
+		09CED90F1ED30BE6002D8FFB /* TimesheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimesheetViewController.xib; path = ViewController/TimesheetViewController.xib; sourceTree = "<group>"; };
+		09CED9121ED43076002D8FFB /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+.swift"; path = "Extensions/Date+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +124,7 @@
 				097BAF261EA8CFE200BD4809 /* Result.framework in Frameworks */,
 				097BAF201EA8BBA200BD4809 /* Moya.framework in Frameworks */,
 				0915A4F81EA7650D00939749 /* RxCocoa.framework in Frameworks */,
+				09CED90B1ED2BEFA002D8FFB /* RxSwiftUtilities.framework in Frameworks */,
 				0915A4F91EA7650D00939749 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +149,7 @@
 		0915A4F41EA7650D00939749 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09CED90A1ED2BEFA002D8FFB /* RxSwiftUtilities.framework */,
 				097BAF251EA8CFE200BD4809 /* Result.framework */,
 				097BAF231EA8CF6D00BD4809 /* ObjectMapper.framework */,
 				097BAF211EA8BBA700BD4809 /* RxMoya.framework */,
@@ -235,6 +247,8 @@
 				093232B01ED08B4C008C8FAE /* LoginViewController.xib */,
 				093232BA1ED1BC5B008C8FAE /* TimesheetsTableViewController.swift */,
 				093232BB1ED1BC5B008C8FAE /* TimesheetsTableViewController.xib */,
+				09CED90E1ED30BE6002D8FFB /* TimesheetViewController.swift */,
+				09CED90F1ED30BE6002D8FFB /* TimesheetViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -273,6 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				09CED9081ED1DA7B002D8FFB /* UIView+Nib.swift */,
+				09CED90C1ED2C460002D8FFB /* UIViewController+ActivityIndicator.swift */,
+				09CED9121ED43076002D8FFB /* Date+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -392,6 +408,7 @@
 				093232B21ED08B4C008C8FAE /* LoginViewController.xib in Resources */,
 				091D51491EA6389900709E21 /* LaunchScreen.storyboard in Resources */,
 				093232BD1ED1BC5B008C8FAE /* TimesheetsTableViewController.xib in Resources */,
+				09CED9111ED30BE6002D8FFB /* TimesheetViewController.xib in Resources */,
 				091D51461EA6389900709E21 /* Assets.xcassets in Resources */,
 				091D51411EA6389900709E21 /* Main.storyboard in Resources */,
 			);
@@ -428,6 +445,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwiftUtilities.framework",
 			);
 			outputPaths = (
 			);
@@ -445,10 +463,13 @@
 				093232BF1ED1BD42008C8FAE /* TimesheetsViewModel.swift in Sources */,
 				093232B11ED08B4C008C8FAE /* LoginViewController.swift in Sources */,
 				093232C21ED1C1AD008C8FAE /* TimesheetTableViewCell.swift in Sources */,
+				09CED90D1ED2C460002D8FFB /* UIViewController+ActivityIndicator.swift in Sources */,
 				093232AD1ED07449008C8FAE /* AppCoordinator.swift in Sources */,
 				093232BC1ED1BC5B008C8FAE /* TimesheetsTableViewController.swift in Sources */,
 				091D51441EA6389900709E21 /* Logtime.xcdatamodeld in Sources */,
+				09CED9131ED43076002D8FFB /* Date+.swift in Sources */,
 				091D513E1EA6389900709E21 /* ViewController.swift in Sources */,
+				09CED9101ED30BE6002D8FFB /* TimesheetViewController.swift in Sources */,
 				092AD9811ECEFDF300B4638A /* Coordinator.swift in Sources */,
 				09CED9091ED1DA7B002D8FFB /* UIView+Nib.swift in Sources */,
 				097BAF2B1EA8F40300BD4809 /* XAppToken.swift in Sources */,

@@ -2,3 +2,4 @@ github "ReactiveX/RxSwift" ~> 3.0
 github "aksswami/Moya-ObjectMapper" "carthage-issue"
 github "Moya/Moya"
 github "Hearst-DD/ObjectMapper" ~> 2.2
+github "RxSwiftCommunity/RxSwiftUtilities"

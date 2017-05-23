@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, ActivityIndicatorPresenter {
     
     @IBOutlet weak var userNameTextField: UITextField! {
         didSet {
@@ -29,7 +29,8 @@ class LoginViewController: UIViewController {
             loginButton.setTitleColor(.gray, for: .disabled)
         }
     }
-    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+
     var viewModel: LoginViewModel!
     let disposeBag = DisposeBag()
     var signedIn: ((User) -> Void)?
@@ -42,7 +43,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupBindings()
     }
     
@@ -55,7 +56,9 @@ class LoginViewController: UIViewController {
         loginButton.rx.tap.withLatestFrom(viewModel.isValid)
             .filter { $0 }
             .flatMapLatest { [unowned self] _ -> Observable<AuthStatus> in
-                return self.viewModel.authenticate(username: self.userNameTextField.text ?? "", password: self.passwordTextField.text ?? "")
+                self.viewModel.authenticate(username: self.userNameTextField.text ?? "", password: self.passwordTextField.text ?? "")
+                    .trackActivity(self.viewModel.activityIndicator)
+                    .observeOn(SerialDispatchQueueScheduler(qos: .userInteractive))
             }
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] authenticationStatus in
@@ -65,6 +68,15 @@ class LoginViewController: UIViewController {
                 case .faliure(let error):
                     self.showError(error)
                 }
+            })
+            .addDisposableTo(disposeBag)
+        
+        viewModel.activityIndicator
+            .distinctUntilChanged()
+            .drive(onNext: { [unowned self] active in
+                self.view.endEditing(true)
+                _ = active ? self.showActivityIndicator() : self.hideActivityIndicator()
+                self.loginButton.isEnabled = !active
             })
             .addDisposableTo(disposeBag)
     }
@@ -77,9 +89,15 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonTapped(_ sender: UIButton) {
     }
     
-    fileprivate func showError(_ error: AuthenticationError) {
+
+}
+
+extension UIViewController {
+    func showError(_ error: AuthenticationError) {
         let alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+    
+    
 }

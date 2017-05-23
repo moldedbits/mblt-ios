@@ -7,12 +7,16 @@
 //
 
 import RxSwift
+import RxSwiftUtilities
 import Moya_ObjectMapper
 
 
 struct TimesheetsViewModel {
     
+    let activityIndicator = ActivityIndicator()
+    
     var authorizedProvider: AuthorizedNetworking!
+    var addTimesheet = Variable<Bool>(false)
     
     init(authorizedProvider: AuthorizedNetworking) {
         self.authorizedProvider = authorizedProvider
@@ -49,16 +53,5 @@ struct TimesheetCellViewModel: TimesheetCellPresentable {
         workedHour = "\(timesheet.hours ?? 0)"
         timesheetDate = Date.string(from: timesheet.date)
         standupNotes = timesheet.standupDetails ?? ""
-    }
-}
-
-
-extension Date {
-    static let dateFormatter = DateFormatter()
-    
-    static func string(from date: Date?, withFormat format: String = "dd/mm/yy") -> String {
-        guard let date = date else { return "" }
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from: date)
     }
 }
