@@ -45,6 +45,7 @@
 		09CED9101ED30BE6002D8FFB /* TimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CED90E1ED30BE6002D8FFB /* TimesheetViewController.swift */; };
 		09CED9111ED30BE6002D8FFB /* TimesheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09CED90F1ED30BE6002D8FFB /* TimesheetViewController.xib */; };
 		09CED9131ED43076002D8FFB /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CED9121ED43076002D8FFB /* Date+.swift */; };
+		09CED9151ED4362E002D8FFB /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CED9141ED4362E002D8FFB /* String+Validation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		09CED90E1ED30BE6002D8FFB /* TimesheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimesheetViewController.swift; path = ViewController/TimesheetViewController.swift; sourceTree = "<group>"; };
 		09CED90F1ED30BE6002D8FFB /* TimesheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimesheetViewController.xib; path = ViewController/TimesheetViewController.xib; sourceTree = "<group>"; };
 		09CED9121ED43076002D8FFB /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+.swift"; path = "Extensions/Date+.swift"; sourceTree = "<group>"; };
+		09CED9141ED4362E002D8FFB /* String+Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Validation.swift"; path = "Extensions/String+Validation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				09CED9081ED1DA7B002D8FFB /* UIView+Nib.swift */,
 				09CED90C1ED2C460002D8FFB /* UIViewController+ActivityIndicator.swift */,
 				09CED9121ED43076002D8FFB /* Date+.swift */,
+				09CED9141ED4362E002D8FFB /* String+Validation.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				09CED90D1ED2C460002D8FFB /* UIViewController+ActivityIndicator.swift in Sources */,
 				093232AD1ED07449008C8FAE /* AppCoordinator.swift in Sources */,
 				093232BC1ED1BC5B008C8FAE /* TimesheetsTableViewController.swift in Sources */,
+				09CED9151ED4362E002D8FFB /* String+Validation.swift in Sources */,
 				091D51441EA6389900709E21 /* Logtime.xcdatamodeld in Sources */,
 				09CED9131ED43076002D8FFB /* Date+.swift in Sources */,
 				091D513E1EA6389900709E21 /* ViewController.swift in Sources */,

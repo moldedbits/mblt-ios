@@ -29,6 +29,9 @@ class LoginViewController: UIViewController, ActivityIndicatorPresenter {
             loginButton.setTitleColor(.gray, for: .disabled)
         }
     }
+    @IBOutlet weak var usernameErrorLabel: UILabel!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
+    
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
     var viewModel: LoginViewModel!
@@ -78,6 +81,18 @@ class LoginViewController: UIViewController, ActivityIndicatorPresenter {
                 _ = active ? self.showActivityIndicator() : self.hideActivityIndicator()
                 self.loginButton.isEnabled = !active
             })
+            .addDisposableTo(disposeBag)
+        
+        viewModel.isUsernameValid
+            .distinctUntilChanged()
+            .map { $0.message }
+            .bind(to: usernameErrorLabel.rx.text)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.isPasswordValid
+            .distinctUntilChanged()
+            .map { $0.message }
+            .bind(to: passwordErrorLabel.rx.text)
             .addDisposableTo(disposeBag)
     }
 

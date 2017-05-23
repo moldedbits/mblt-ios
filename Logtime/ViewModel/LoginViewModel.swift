@@ -44,6 +44,58 @@ enum AuthStatus {
     case faliure(AuthenticationError)
 }
 
+enum UsernameValidationError: Error {
+    case badEmail
+    case empty
+    case none
+    
+    var title: String {
+        switch self {
+        case .badEmail, .empty:
+            return "Username error"
+        case .none:
+            return ""
+        }
+    }
+    
+    var message: String {
+        switch self {
+        case .badEmail:
+            return "Please enter correct email address"
+        case .empty:
+            return ""
+        case .none:
+            return ""
+        }
+    }
+}
+
+enum PasswordValidationError: Error {
+    case length
+    case empty
+    case none
+    
+    var title: String {
+        switch self {
+        case .length, .empty:
+            return "Password error"
+        case .none:
+            return ""
+        }
+    }
+    
+    var message: String {
+        switch self {
+        case .length:
+            return "Password should be more than 8 characters"
+        case .empty:
+            return ""
+        case .none:
+            return ""
+        }
+    }
+}
+
 struct LoginViewModel {
     
     let provider: Networking!
@@ -54,11 +106,42 @@ struct LoginViewModel {
     var password = Variable<String>("")
     var userSignedIn: ((User) -> Void)?
     
+    var isUsernameValid: Observable<UsernameValidationError> {
+        return username.asObservable()
+            .map { username in
+                if username.isEmpty {
+                    return .empty
+                } else if !username.isEmail() {
+                    return .badEmail
+                } else {
+                    return .none
+                }
+            }
+            .startWith(.none)
+    }
+    
+    var isPasswordValid: Observable<PasswordValidationError> {
+        return password.asObservable()
+            .map { password in
+                if password.isEmpty {
+                    return .empty
+                } else if password.characters.count < 8 {
+                    return .length
+                } else {
+                    return .none
+                }
+            }
+            .startWith(.none)
+    }
+    
     
     var isValid: Observable<Bool> {
-        return Observable<Bool>.combineLatest(self.username.asObservable(), self.password.asObservable()) { username, password in
-            return !username.isEmpty && !password.isEmpty
-        }.startWith(false)
+        return Observable<Bool>.combineLatest(self.isUsernameValid, self.isPasswordValid) { username, password in
+            if username == .none && password == .none {
+                return true
+            }
+            return false
+        }.startWith(false) 
     }
     
     init(provider: Networking) {
